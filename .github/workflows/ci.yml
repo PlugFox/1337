@@ -31,8 +31,8 @@ on:
 
 jobs:
   checkout:
+    name: Checkout
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
