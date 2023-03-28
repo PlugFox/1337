@@ -60,3 +60,8 @@ build/
 # CMakeList
 CMakeCache.txt
 CMakeFiles/
+
+# Trash
+*.log
+*.swp
+*~

@@ -2,8 +2,9 @@
 
 BUILD_DIR := build
 
-_prepare:
-	@mkdir $(BUILD_DIR) || true
+# brew install pre-commit
+setup:
+	@pre-commit install
 
 all: _prepare
 	@echo "Building release..."
@@ -23,3 +24,6 @@ test: debug
 
 format:
 	@clang-format -i -style=file lib/**/*.c bin/main.c test/**/*.c
+
+_prepare:
+	@mkdir $(BUILD_DIR) || true

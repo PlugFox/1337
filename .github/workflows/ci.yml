@@ -1,12 +1,33 @@
 name: CI
 
 on:
+  workflow_dispatch:
+  #schedule:
+  #  - cron: "0 7 * * 1"
   push:
     branches:
-      - main
+      - "master"
+      - "develop"
+      - "feature/**"
+      - "bugfix/**"
+      - "hotfix/**"
+      - "support/**"
+    paths:
+      - "bin/**.c"
+      - "lib/**.c"
+      - "test/**.c"
   pull_request:
     branches:
-      - main
+      - "master"
+      - "develop"
+      - "feature/**"
+      - "bugfix/**"
+      - "hotfix/**"
+      - "support/**"
+    paths:
+      - "bin/**.c"
+      - "lib/**.c"
+      - "test/**.c"
 
 jobs:
   build:
@@ -16,25 +37,20 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Set up C environment
-        uses: actions/setup-c@v1
+      - name: Set up Clang
+        uses: egor-tensin/setup-clang@v1
+        with:
+          version: latest
+          platform: x64
 
       - name: Install dependencies
-        run: sudo apt-get install cmake
+        run: apt-get install cmake
 
       - name: Run clang-format
         run: |
-          find src include -iname *.h -o -iname *.c | xargs clang-format -i
+          find lib -iname *.h -o -iname *.c | xargs clang-format -i
           git diff --exit-code
-
-      - name: Configure and build
-        run: |
-          mkdir build
-          cd build
-          cmake ..
-          make
 
       - name: Run tests
         run: |
-          cd build
-          ctest --verbose
+          make test

@@ -19,14 +19,14 @@ add_library(main-lib STATIC lib/src/sum.c)
 target_include_directories(main-lib PUBLIC lib)
 
 target_compile_options(main-lib PRIVATE
-  -fcolor-diagnostics
-  -fansi-escape-codes
   -std=c17
 )
 
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
   target_compile_options(main-lib PRIVATE
+    -fcolor-diagnostics
+    -fansi-escape-codes
     -O0
     -g
   )
