@@ -2,7 +2,7 @@
 
 BUILD_DIR := build
 
-# brew install pre-commit
+# brew install make cmake ninja llvm pre-commit clang-format
 setup:
 	@pre-commit install
 

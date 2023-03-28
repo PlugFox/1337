@@ -11,7 +11,7 @@ choco install -y make cmake ninja llvm mingw
 ### macOS
 
 ```bash
-brew install -y make cmake ninja llvm
+brew install make cmake ninja llvm pre-commit clang-format
 ```
 
 ### Linux
