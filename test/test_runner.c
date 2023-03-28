@@ -1,7 +1,6 @@
 #include "unity/unity.h"
 
-#include "../include/sum.h"
-// #include "../lib/src/sum.c"
+#include "sum.h"
 
 void setUp(void) {
     // Empty function since we don't need any setup for the tests in this example

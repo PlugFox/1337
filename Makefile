@@ -8,11 +8,15 @@ setup:
 
 all: _prepare
 	@echo "Building release..."
-	@cd $(BUILD_DIR) && cmake -G "Ninja" .. && ninja
+	@cd $(BUILD_DIR) && cmake -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. && ninja
+	@echo "Make a link to compile_commands.json"
+	@rm -f compile_commands.json && ln -s build/compile_commands.json compile_commands.json
 
 debug: _prepare
 	@echo "Building debug..."
-	@cd $(BUILD_DIR) && cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Debug .. && ninja
+	@cd $(BUILD_DIR) && cmake -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug .. && ninja
+	@echo "Make a link to compile_commands.json"
+	@rm -f compile_commands.json && ln -s build/compile_commands.json compile_commands.json
 
 build: all
 release: all
