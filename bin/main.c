@@ -3,7 +3,7 @@
 //  #include <string.h>
 //  #include <errno.h>
 
-#include "../lib/include/sum.h"
+#include "../include/sum.h"
 
 int main() {
     int a = 3, b = 4;

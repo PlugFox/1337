@@ -15,10 +15,10 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
 #include_directories(include)
-#add_executable(main bin/main.c lib/src/sum.c)
+#add_executable(main bin/main.c src/sum.c)
 
-add_library(main-lib STATIC lib/src/sum.c)
-target_include_directories(main-lib PUBLIC lib/include)
+add_library(main-lib STATIC src/sum.c)
+target_include_directories(main-lib PUBLIC include/)
 
 target_compile_options(main-lib PRIVATE
   -std=c17
