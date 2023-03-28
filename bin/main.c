@@ -5,7 +5,7 @@
 
 #include "../include/sum.h"
 
-int main(int argc, char **argv) {
+int main(int argc, char *argv[]) {
     printf("Arguments:\n");
     for (int i = 0; i < argc; i++)
         printf("arg[%d] = %s", i, argv[i]);
