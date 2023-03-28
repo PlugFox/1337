@@ -1,0 +1,81 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Debug build",
+      "type": "shell",
+      "windows": {
+        "command": "make debug",
+        "args": []
+      },
+      "linux": {
+        "command": "make debug",
+        "args": []
+      },
+      "osx": {
+        "command": "make debug",
+        "args": []
+      },
+      "dependsOn": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "runOptions": {
+        "runOn": "default"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "compiler: clang"
+    },
+    {
+      "label": "Release build",
+      "type": "shell",
+      "windows": {
+        "command": "make",
+        "args": []
+      },
+      "linux": {
+        "command": "make",
+        "args": []
+      },
+      "osx": {
+        "command": "make",
+        "args": []
+      },
+      "dependsOn": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "runOptions": {
+        "runOn": "default"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "compiler: clang"
+    },
+    {
+      "label": "Test",
+      "type": "shell",
+      "command": "make test",
+      "dependsOn": ["Debug build"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "runOptions": {
+        "runOn": "default"
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "compiler: clang"
+    }
+  ]
+}

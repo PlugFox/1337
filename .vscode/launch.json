@@ -1,0 +1,64 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/main",
+      "args": [],
+      "environment": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "externalConsole": false,
+      "windows": {
+        "name": "Debug (Windows)",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}\\build\\main.exe",
+        "args": [],
+        "environment": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "miDebuggerPath": "gdb.exe",
+        "miDebuggerArgs": "--interpreter=mi2"
+      },
+      "linux": {
+        "name": "Debug (Linux)",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/main",
+        "args": [],
+        "environment": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "miDebuggerPath": "/usr/build/gdb",
+        "miDebuggerArgs": "--interpreter=mi2"
+      },
+      "osx": {
+        "name": "Debug (macOS)",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/main",
+        "args": [],
+        "environment": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "externalConsole": false, // set to "true" to open a terminal window and input from stdin
+        "MIMode": "lldb"
+      },
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "Debug build"
+    }
+  ]
+}

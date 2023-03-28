@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "LeetCodeSolutions",
+            "includePath": [
+                "${workspaceFolder}/bin",
+                "${workspaceFolder}/lib"
+            ],
+            "defines": [],
+            "compilerPath": "clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

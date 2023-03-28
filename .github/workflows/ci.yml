@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up C environment
+        uses: actions/setup-c@v1
+
+      - name: Install dependencies
+        run: sudo apt-get install cmake
+
+      - name: Run clang-format
+        run: |
+          find src include -iname *.h -o -iname *.c | xargs clang-format -i
+          git diff --exit-code
+
+      - name: Configure and build
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make
+
+      - name: Run tests
+        run: |
+          cd build
+          ctest --verbose
