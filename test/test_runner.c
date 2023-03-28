@@ -1,6 +1,6 @@
 #include "unity/unity.h"
 
-#include "../lib/sum.h"
+#include "../lib/include/sum.h"
 // #include "../lib/src/sum.c"
 
 void setUp(void) {

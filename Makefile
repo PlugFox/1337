@@ -8,11 +8,11 @@ setup:
 
 all: _prepare
 	@echo "Building release..."
-	@cd $(BUILD_DIR) && cmake .. && make
+	@cd $(BUILD_DIR) && cmake -G "Ninja" .. && ninja
 
 debug: _prepare
 	@echo "Building debug..."
-	@cd $(BUILD_DIR) && cmake -DCMAKE_BUILD_TYPE=Debug .. && make
+	@cd $(BUILD_DIR) && cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Debug .. && ninja
 
 build: all
 release: all
@@ -23,7 +23,11 @@ test: debug
 	@(cd $(BUILD_DIR) && ctest --verbose)
 
 format:
-	@clang-format -i -style=file lib/**/*.c bin/main.c test/**/*.c
+	@clang-format -i -style=file bin/*.c
+	@clang-format -i -style=file lib/src/*.c
+	@clang-format -i -style=file lib/include/*.h
+	@clang-format -i -style=file test/*.c
+
 
 _prepare:
 	@mkdir $(BUILD_DIR) || true

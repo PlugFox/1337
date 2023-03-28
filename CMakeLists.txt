@@ -7,6 +7,8 @@ cmake_minimum_required(VERSION 3.16)
 
 project(main C)
 
+set(CC clang)
+set(CXX clang++)
 set(CMAKE_C_COMPILER clang)
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -16,12 +18,11 @@ set(CMAKE_C_EXTENSIONS OFF)
 #add_executable(main bin/main.c lib/src/sum.c)
 
 add_library(main-lib STATIC lib/src/sum.c)
-target_include_directories(main-lib PUBLIC lib)
+target_include_directories(main-lib PUBLIC lib/include)
 
 target_compile_options(main-lib PRIVATE
   -std=c17
 )
-
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
   target_compile_options(main-lib PRIVATE
@@ -39,7 +40,6 @@ else()
     -Werror
   )
 endif()
-
 
 add_executable(main bin/main.c)
 target_link_libraries(main main-lib)
