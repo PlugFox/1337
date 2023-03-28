@@ -30,7 +30,7 @@ on:
       - "test/**.c"
 
 jobs:
-  build:
+  checkout:
     runs-on: ubuntu-latest
 
     steps:
@@ -44,7 +44,7 @@ jobs:
           platform: x64
 
       - name: Install dependencies
-        run: apt-get install cmake
+        run: sudo apt-get install cmake
 
       - name: Run clang-format
         run: |
