@@ -23,7 +23,13 @@ sudo apt-get -y install make cmake ninja-build llvm
 ## Build
 
 ```bash
-make
+make release
+```
+
+or
+
+```bash
+make debug
 ```
 
 ## Test

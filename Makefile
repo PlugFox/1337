@@ -1,4 +1,4 @@
-.PHONY: all debug build release develop test format
+.PHONY: all release debug build production develop test format
 
 BUILD_DIR := build
 
@@ -6,7 +6,7 @@ BUILD_DIR := build
 setup:
 	@pre-commit install
 
-all: _prepare
+release: _prepare
 	@echo "Building release..."
 	@cd $(BUILD_DIR) && cmake -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. && ninja
 	@echo "Make a link to compile_commands.json"
@@ -18,8 +18,9 @@ debug: _prepare
 	@echo "Make a link to compile_commands.json"
 	@rm -f compile_commands.json && ln -s build/compile_commands.json compile_commands.json
 
-build: all
-release: all
+all: release
+build: release
+production: release
 develop: debug
 
 test: debug

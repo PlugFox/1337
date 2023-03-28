@@ -34,15 +34,15 @@
       "label": "Release build",
       "type": "shell",
       "windows": {
-        "command": "make",
+        "command": "make build",
         "args": []
       },
       "linux": {
-        "command": "make",
+        "command": "make build",
         "args": []
       },
       "osx": {
-        "command": "make",
+        "command": "make build",
         "args": []
       },
       "dependsOn": [],
