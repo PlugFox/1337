@@ -43,8 +43,13 @@ jobs:
           version: latest
           platform: x64
 
-      - name: Install dependencies
-        run: sudo apt-get install cmake
+      - name: Set up CMake & Ninja
+        uses: lukka/get-cmake@latest
+        with:
+          useLocalCache: false
+          useCloudCache: true
+          cmakeVersion: latest
+          ninjaVersion: latest
 
       - name: Run clang-format
         run: |
